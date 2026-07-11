@@ -49,13 +49,13 @@ public class SeedRandomness : MonoBehaviour
     {
         int seed = 0;
 
-        seed ^= Environment.TickCount;                               // Time since system start
-        seed ^= DateTime.Now.Millisecond << 11;                      // Current millisecond shifted
-        seed ^= SystemInfo.graphicsDeviceID;                         // GPU dependent
-        seed ^= SystemInfo.processorCount << 3;                      // CPU core count
-        seed ^= SystemInfo.systemMemorySize << 2;                    // RAM
-        seed ^= (int)(UnityEngine.Random.value * int.MaxValue);      // Unity's own random
-        seed ^= (int)(Time.realtimeSinceStartup * 1000) << 5;        // Time since app launch
+        seed ^= Environment.TickCount;                               //time since system start
+        seed ^= DateTime.Now.Millisecond << 11;                      //current millisecond shifted
+        seed ^= SystemInfo.graphicsDeviceID;                         //GPU dependent
+        seed ^= SystemInfo.processorCount << 3;                      //CPU core count
+        seed ^= SystemInfo.systemMemorySize << 2;                    //RAM
+        seed ^= (int)(UnityEngine.Random.value * int.MaxValue);      //unity's own random
+        seed ^= (int)(Time.realtimeSinceStartup * 1000) << 5;        //time since app launch
 
         return seed;
     }
